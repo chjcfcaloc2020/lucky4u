@@ -3,7 +3,7 @@ import { db } from "hatchable";
 export const access = "public";
 export const methods = ["GET", "POST"];
 
-const norm = (c) => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 16);
+const norm = (c) => String(c || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "").slice(0, 32);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function getStatus() {

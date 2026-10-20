@@ -32,7 +32,7 @@ input,textarea{width:100%;font:inherit;padding:10px;border-radius:12px;border:2p
 .stats b{display:block;font-size:16px;color:var(--ink)}
 .pl{border-top:1px solid #f6dce5;padding:10px 0}
 .pl:first-child{border-top:0}
-.code{font-family:ui-monospace,Menlo,monospace;font-weight:700;letter-spacing:2px;background:var(--cream);padding:2px 8px;border-radius:8px}
+.code{font-family:ui-monospace,Menlo,monospace;font-weight:700;letter-spacing:1px;background:var(--cream);padding:2px 8px;border-radius:8px}
 .won{font-weight:800;color:var(--gold2)}
 .err{color:#c0392b;font-weight:700;margin:8px 0 0}
 .small{font-size:13px;color:var(--soft)}
@@ -98,7 +98,7 @@ function render() {
 
   <div class="card">
     <h2>Thêm người chơi</h2>
-    <textarea id="names" rows="3" placeholder="Mỗi dòng một tên"></textarea>
+    <textarea id="names" rows="3" placeholder="Mỗi dòng một tên (mã sẽ là tên viết liền không dấu)"></textarea>
     <div style="margin-top:8px"><button class="pri" onclick="addP()">Thêm và tạo mã</button></div>
   </div>
 

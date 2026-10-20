@@ -25,8 +25,7 @@ h1,h2,.big{font-family:"Baloo 2",Nunito,system-ui,sans-serif;margin:0}
 @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,10px)}}
 .lotus{width:150px;height:auto;display:block;margin:0 auto -6px;position:relative;z-index:1;filter:drop-shadow(0 6px 10px rgba(200,60,110,.25))}
 .lotus .pt{transform-box:fill-box;transform-origin:50% 100%;animation:bloom .9s cubic-bezier(.2,.9,.3,1.25) both}
-.lotus .p1{animation-delay:.1s}.lotus .p2{animation-delay:.25s}.lotus .p3{animation-delay:.4s}
-.lotus .p4{animation-delay:.55s}
+.lotus .p1{animation-delay:.1s}.lotus .p2{animation-delay:.25s}.lotus .p3{animation-delay:.4s}.lotus .p4{animation-delay:.55s}
 .lotus .core{animation:bloom .7s ease .8s both,glow 2.4s ease-in-out 1.6s infinite;transform-box:fill-box;transform-origin:center}
 @keyframes bloom{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
 @keyframes glow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
@@ -37,7 +36,6 @@ h1,h2,.big{font-family:"Baloo 2",Nunito,system-ui,sans-serif;margin:0}
 .lead{font-weight:700;color:#8a2a4d;font-size:15px;max-width:300px;margin:0 auto;position:relative;z-index:1;animation:rise .8s ease .65s both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-/* cánh hoa rơi */
 .petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
 .petal{position:absolute;top:-30px;border-radius:150% 0 150% 0;background:linear-gradient(135deg,#ffc4d8,#ff8fb4);opacity:.7;animation:fall linear infinite}
 @keyframes fall{0%{transform:translate3d(0,-5vh,0) rotate(0)}50%{transform:translate3d(var(--dx),55vh,0) rotate(200deg)}100%{transform:translate3d(calc(var(--dx)*-.4),110vh,0) rotate(420deg)}}
@@ -55,38 +53,64 @@ button{font:inherit;cursor:pointer;border:0}
 .ghost{background:var(--pink);color:var(--rose);font-weight:800;padding:10px 20px;border-radius:99px;transition:transform .15s,background .2s}
 .ghost:hover{background:var(--pink2)}
 .ghost:active{transform:scale(.94) rotate(-1deg)}
-h2{font-size:23px;text-align:center;color:var(--rose)}
-.sub{text-align:center;color:var(--soft);font-size:14px;margin:2px 0 14px}
-input{width:100%;font:inherit;font-weight:700;text-align:center;letter-spacing:3px;text-transform:uppercase;padding:12px;border-radius:16px;border:2px solid var(--pink2);background:var(--cream);color:var(--ink);outline:0;transition:border-color .2s,box-shadow .2s}
+
+/* khu rút lì xì */
+.ribbon{display:table;margin:-34px auto 12px;padding:8px 34px;font:800 20px "Baloo 2",sans-serif;letter-spacing:.5px;color:#7a4a00;background:linear-gradient(180deg,#ffe58a,#f5b942);clip-path:polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%);filter:drop-shadow(0 4px 0 #c98410);position:relative;text-align:center;white-space:nowrap}
+.sub{text-align:center;color:var(--soft);font-size:14px;margin:0 0 12px}
+input{width:100%;font:inherit;font-weight:800;text-align:center;letter-spacing:1px;padding:13px;border-radius:16px;border:2px solid var(--pink2);background:var(--cream);color:var(--ink);outline:0;transition:border-color .2s,box-shadow .2s}
 input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,185,66,.25)}
+input::placeholder{font-weight:600;letter-spacing:0;color:#b99aa8}
 .hello{text-align:center;font-weight:800;margin:10px 0 0;min-height:24px;color:var(--rose)}
 .hello.in{animation:rise .5s ease}
 
-/* phong bao */
-.stage{position:relative;width:220px;height:230px;margin:18px auto 6px;perspective:700px;animation:float 3.2s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.stage::before{content:"";position:absolute;left:10%;right:10%;bottom:-8px;height:16px;border-radius:50%;background:rgba(232,86,138,.22);filter:blur(6px);animation:shadow 3.2s ease-in-out infinite}
-@keyframes shadow{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(.8);opacity:.5}}
-.env-back,.env-front,.flap,.paper{position:absolute;left:0;right:0}
-.env-back{bottom:0;height:170px;background:#d94b78;border-radius:14px}
-.paper{bottom:10px;height:150px;margin:0 14px;background:linear-gradient(#fffdf6,#ffeec4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:44px;transition:transform .8s cubic-bezier(.2,.9,.3,1.2) .35s;z-index:1}
-.env-front{bottom:0;height:170px;background:linear-gradient(160deg,#ff93b5,#ec5f8e);border-radius:14px;z-index:2;clip-path:polygon(0 0,50% 46%,100% 0,100% 100%,0 100%)}
-.env-front::after{content:"";position:absolute;inset:6px;border:2px dashed rgba(255,230,150,.7);border-radius:10px}
-.flap{top:60px;height:100px;background:linear-gradient(#f66b97,#d94b78);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;z-index:3;transition:transform .5s ease}
-.seal{position:absolute;left:50%;top:120px;transform:translateX(-50%);width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe08a,var(--gold2));color:#7a4a00;font:800 13px/54px "Baloo 2",sans-serif;text-align:center;z-index:4;box-shadow:0 3px 8px rgba(0,0,0,.2);transition:opacity .3s}
-.stage.shake{animation:shake .45s ease-in-out infinite}
-@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg) translateY(-4px)}75%{transform:rotate(6deg) translateY(-4px)}}
-.stage.open{animation:none}
-.stage.open::before{display:none}
-.stage.open .flap{transform:rotateX(180deg);z-index:0}
-.stage.open .seal{opacity:0}
-.stage.open .paper{transform:translateY(-95px)}
+.stage{position:relative;height:330px;margin:10px -6px 0;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 68%,#fff 0%,#ffeef4 55%,#ffd9e6 100%);perspective:800px}
+.stage::after{content:"";position:absolute;inset:0;border-radius:24px;box-shadow:inset 0 0 0 2px rgba(245,185,66,.55);pointer-events:none;z-index:9}
+.rays{position:absolute;left:50%;top:67%;width:520px;height:520px;margin:-260px 0 0 -260px;background:repeating-conic-gradient(from 0deg,rgba(255,213,100,.38) 0 9deg,transparent 9deg 18deg);-webkit-mask:radial-gradient(circle,#000 8%,transparent 66%);mask:radial-gradient(circle,#000 8%,transparent 66%);animation:spin 26s linear infinite;opacity:.65;transition:opacity .6s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{position:absolute;left:50%;top:67%;width:260px;height:260px;margin:-130px 0 0 -130px;border-radius:50%;background:radial-gradient(circle,rgba(255,224,130,.75),transparent 68%);animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+.stage.shake .rays{animation-duration:3s;opacity:1}
+.stage.shake .glow{animation-duration:.5s}
+.stage.open .rays{animation-duration:9s;opacity:1}
 .sp{position:absolute;color:var(--gold);font-size:18px;animation:twinkle 2s ease-in-out infinite;z-index:5;pointer-events:none}
-.sp:nth-of-type(1){left:-14px;top:30px}.sp:nth-of-type(2){right:-10px;top:10px;animation-delay:.6s;font-size:24px}
-.sp:nth-of-type(3){right:-18px;bottom:50px;animation-delay:1.2s}.sp:nth-of-type(4){left:-6px;bottom:20px;animation-delay:.3s;font-size:14px}
-@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(30deg)}}
+.sp:nth-of-type(1){left:9%;top:22%}.sp:nth-of-type(2){right:10%;top:12%;animation-delay:.6s;font-size:26px}
+.sp:nth-of-type(3){right:7%;bottom:30%;animation-delay:1.2s}.sp:nth-of-type(4){left:7%;bottom:22%;animation-delay:.3s;font-size:14px}
+.sp:nth-of-type(5){left:30%;top:8%;animation-delay:.9s;font-size:12px;color:var(--pink2)}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.25) rotate(35deg)}}
 
-.go{display:block;width:100%;margin-top:12px;padding:16px;border-radius:99px;font:800 19px "Baloo 2",sans-serif;letter-spacing:.5px;color:#7a4a00;background:linear-gradient(180deg,#ffd76a,var(--gold));box-shadow:0 5px 0 var(--gold2),0 10px 18px rgba(227,154,20,.3);transition:transform .1s,box-shadow .1s;position:relative;overflow:hidden;animation:pulse 1.8s ease-in-out infinite}
+.env{position:absolute;left:50%;bottom:26px;width:240px;height:170px;margin-left:-120px;animation:float 3.2s ease-in-out infinite;z-index:3}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+.env::before{content:"";position:absolute;left:8%;right:8%;bottom:-14px;height:16px;border-radius:50%;background:rgba(200,60,110,.25);filter:blur(7px);animation:shadow 3.2s ease-in-out infinite}
+@keyframes shadow{0%,100%{transform:scaleX(1);opacity:.85}50%{transform:scaleX(.8);opacity:.5}}
+.stage.shake .env{animation:shake .4s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0) translateX(0)}20%{transform:rotate(-7deg) translateX(-4px)}60%{transform:rotate(7deg) translateX(4px)}}
+.stage.open .env{animation:none}
+.stage.open .env::before{display:none}
+.env-back,.env-front,.flap,.paper{position:absolute;left:0;right:0}
+.env-back{bottom:0;height:170px;background:linear-gradient(#c93f6c,#b5345c);border-radius:16px}
+.paper{bottom:8px;height:158px;margin:0 14px;border-radius:12px;z-index:1;background:linear-gradient(180deg,#fffdf4,#ffeab8);border:3px solid #f5b942;box-shadow:0 6px 16px rgba(160,100,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 1s cubic-bezier(.2,.9,.25,1.15) .35s}
+.paper::before{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(227,154,20,.6);border-radius:8px}
+.pc{opacity:0;transform:scale(.6);transition:opacity .5s ease 1s,transform .6s cubic-bezier(.2,.9,.3,1.4) 1s;text-align:center;position:relative}
+.pc small{display:block;font:800 13px Nunito,sans-serif;letter-spacing:3px;color:var(--gold2)}
+.amount{font:800 44px/1.05 "Baloo 2",sans-serif;background:linear-gradient(180deg,#ff8fb4,#e8568a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(160,40,80,.2))}
+.pc i{display:block;font-style:normal;font-size:20px;margin-top:2px}
+.env-front{bottom:0;height:170px;background:linear-gradient(165deg,#ff97b8,#ee5f8f 70%,#e0507f);border-radius:16px;z-index:2;clip-path:polygon(0 0,50% 46%,100% 0,100% 100%,0 100%)}
+.env-front::after{content:"";position:absolute;left:0;right:0;bottom:24px;height:9px;background:linear-gradient(90deg,#e39a14,#ffe58a,#e39a14);opacity:.9}
+.flap{top:0;height:104px;background:linear-gradient(#f9709d,#dc4a78);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;z-index:3;transition:transform .55s cubic-bezier(.3,.8,.3,1)}
+.seal{position:absolute;left:50%;top:70px;margin-left:-29px;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff0a8,#f5b942 55%,#d98a0c);color:#7a4a00;font:800 13px/58px "Baloo 2",sans-serif;text-align:center;z-index:4;box-shadow:0 0 0 3px rgba(255,255,255,.6),0 4px 10px rgba(0,0,0,.25);transition:opacity .3s,transform .4s;animation:seal 2.2s ease-in-out infinite}
+@keyframes seal{0%,100%{box-shadow:0 0 0 3px rgba(255,255,255,.6),0 4px 10px rgba(0,0,0,.25)}50%{box-shadow:0 0 0 8px rgba(255,229,138,.5),0 4px 14px rgba(0,0,0,.25)}}
+.stage.open .flap{transform:rotateX(180deg);z-index:0}
+.stage.open .seal{opacity:0;transform:scale(.3)}
+.stage.open .paper{transform:translateY(-138px) scale(1.12)}
+.stage.open .pc{opacity:1;transform:none}
+
+.flash{position:absolute;left:50%;top:67%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,240,170,.9) 40%,transparent 70%);opacity:0;pointer-events:none;z-index:8}
+.flash.go{animation:flash .8s ease-out}
+@keyframes flash{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(16)}}
+.bst{position:absolute;left:50%;top:60%;font-size:20px;pointer-events:none;z-index:7;animation:burst 1.1s cubic-bezier(.1,.8,.3,1) forwards}
+@keyframes burst{0%{transform:translate(0,0) scale(0) rotate(0);opacity:1}70%{opacity:1}100%{transform:translate(var(--x),var(--y)) scale(1.1) rotate(var(--r));opacity:0}}
+
+.go{display:block;width:100%;margin-top:14px;padding:16px;border-radius:99px;font:800 19px "Baloo 2",sans-serif;letter-spacing:.5px;color:#7a4a00;background:linear-gradient(180deg,#ffd76a,var(--gold));box-shadow:0 5px 0 var(--gold2),0 10px 18px rgba(227,154,20,.3);transition:transform .1s,box-shadow .1s;position:relative;overflow:hidden;animation:pulse 1.8s ease-in-out infinite}
 .go::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);animation:shine 2.8s ease-in-out infinite}
 @keyframes shine{0%{left:-60%}60%,100%{left:130%}}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
@@ -94,18 +118,15 @@ input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,185,66,.25)}
 .go:disabled{background:#eadfd0;color:#a8967e;box-shadow:0 5px 0 #d4c6b2;cursor:not-allowed;animation:none}
 .go:disabled::after{display:none}
 .msg{text-align:center;font-weight:700;color:var(--rose);margin:12px 0 0;min-height:24px}
-.result{text-align:center;display:none}
-.result.show{display:block;animation:pop .7s cubic-bezier(.2,.9,.3,1.3)}
-@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
-.result small{color:var(--soft);font-weight:700;letter-spacing:1px}
-.amount{font-size:60px;line-height:1.1;font-weight:800;background:linear-gradient(180deg,#ffcf4d,#e39a14);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(160,100,0,.25));animation:beat 1.6s ease-in-out 1.3s infinite}
-@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-.cmt{font-weight:700;font-size:17px;margin:4px 0 10px}
+.result{text-align:center;display:none;margin-top:12px}
+.result.show{display:block;animation:pop .7s cubic-bezier(.2,.9,.3,1.3) 1.3s both}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.cmt{font-weight:800;font-size:17px;margin:0 0 10px}
 .note{background:var(--cream);border:2px dashed var(--gold);border-radius:14px;padding:8px 12px;font-size:13.5px;color:var(--soft)}
 canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
 footer{text-align:center;color:var(--soft);font-size:13.5px;margin-top:24px;font-weight:700}
 footer b{display:block;font:400 18px Pacifico,cursive;color:var(--rose);margin-bottom:2px}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.petals{display:none}.rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;animation-delay:0s!important}.petals{display:none}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -120,7 +141,7 @@ footer b{display:block;font:400 18px Pacifico,cursive;color:var(--rose);margin-b
         <linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3f7"/><stop offset="1" stop-color="#ff6f9f"/></linearGradient>
       </defs>
       <g transform="translate(100 112)">
-        <ellipse class="pt p1" cx="0" cy="-42" rx="15" ry="44" fill="url(#lg)" stroke="#ff8fb4" stroke-width="1.5" transform="rotate(-68) translate(0 0)"/>
+        <ellipse class="pt p1" cx="0" cy="-42" rx="15" ry="44" fill="url(#lg)" stroke="#ff8fb4" stroke-width="1.5" transform="rotate(-68)"/>
         <ellipse class="pt p1" cx="0" cy="-42" rx="15" ry="44" fill="url(#lg)" stroke="#ff8fb4" stroke-width="1.5" transform="rotate(68)"/>
         <ellipse class="pt p2" cx="0" cy="-45" rx="16" ry="48" fill="url(#lg)" stroke="#ff8fb4" stroke-width="1.5" transform="rotate(-40)"/>
         <ellipse class="pt p2" cx="0" cy="-45" rx="16" ry="48" fill="url(#lg)" stroke="#ff8fb4" stroke-width="1.5" transform="rotate(40)"/>
@@ -141,21 +162,24 @@ footer b{display:block;font:400 18px Pacifico,cursive;color:var(--rose);margin-b
     <button class="ghost" id="shuffle">✨ Đổi lời chúc</button>
   </div>
 
-  <div class="card rv">
-    <h2>🧧 Rút lì xì 20/10</h2>
-    <p class="sub">Nhập mã riêng của em, mỗi người rút đúng một lần thôi nha</p>
-    <input id="code" maxlength="12" placeholder="MÃ THAM GIA" autocomplete="off" autocapitalize="characters" spellcheck="false">
+  <div class="card rv" style="margin-top:44px">
+    <div class="ribbon">🧧 RÚT LÌ XÌ 20/10</div>
+    <p class="sub">Nhập mã riêng của em (chính là tên viết liền không dấu). Mỗi người rút đúng một lần thôi nha!</p>
+    <input id="code" maxlength="32" placeholder="Mã tham gia, ví dụ: minhanh" autocomplete="off" autocapitalize="none" spellcheck="false">
     <p class="hello" id="hello"></p>
 
     <div class="stage" id="stage">
-      <span class="sp">✦</span><span class="sp">✦</span><span class="sp">✦</span><span class="sp">✦</span>
-      <div class="env-back"></div><div class="paper">🎁</div>
-      <div class="env-front"></div><div class="flap"></div><div class="seal">20/10</div>
+      <div class="rays"></div><div class="glow"></div>
+      <span class="sp">✦</span><span class="sp">✦</span><span class="sp">✦</span><span class="sp">✦</span><span class="sp">❀</span>
+      <div class="env" id="env">
+        <div class="env-back"></div>
+        <div class="paper"><div class="pc"><small>EM TRÚNG</small><div class="amount" id="amount"></div><i>🎉</i></div></div>
+        <div class="env-front"></div><div class="flap"></div><div class="seal">20/10</div>
+      </div>
+      <div class="flash" id="flash"></div>
     </div>
 
     <div class="result" id="result">
-      <small>EM TRÚNG</small>
-      <div class="amount big" id="amount"></div>
       <div class="cmt" id="cmt"></div>
       <div class="note">Tiền sẽ được trao trực tiếp, em nhớ nhắc để được nhận nha 💕</div>
     </div>
@@ -203,7 +227,8 @@ function nextWish() {
 $("shuffle").onclick = nextWish; nextWish();
 
 const money = (n) => Number(n).toLocaleString("vi-VN") + "đ";
-const norm = (c) => c.toUpperCase().replace(/[^A-Z0-9]/g, "");
+// "Trọc" -> "troc" (khớp với cách backend tạo mã)
+const norm = (c) => String(c || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "").slice(0, 32);
 const store = {
   get() { try { return localStorage.getItem("lixi_code") || ""; } catch (e) { return ""; } },
   set(v) { try { v ? localStorage.setItem("lixi_code", v) : localStorage.removeItem("lixi_code"); } catch (e) {} }
@@ -211,26 +236,41 @@ const store = {
 
 function countUp(el, to) {
   if (still) { el.textContent = money(to); return; }
-  const t0 = performance.now(), dur = 1200;
+  const t0 = performance.now() + 1000, dur = 1100;
+  el.textContent = money(0);
   (function f(t) {
+    if (t < t0) return requestAnimationFrame(f);
     const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
     el.textContent = money(Math.round(to * e / 1000) * 1000);
     if (k < 1) requestAnimationFrame(f); else el.textContent = money(to);
-  })(t0);
+  })(performance.now());
 }
 function hello(name) {
   const h = $("hello"); h.textContent = name ? "Chào " + name + " 💖" : "";
   h.classList.remove("in"); void h.offsetWidth; if (name) h.classList.add("in");
 }
+function burst() {
+  if (still) return;
+  const st = $("stage"), fl = $("flash");
+  fl.classList.remove("go"); void fl.offsetWidth; fl.classList.add("go");
+  const ch = ["✦", "✧", "❀", "★", "✿"], cols = ["#f5b942", "#ff8fb4", "#ffd76a", "#fff", "#e8568a"];
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement("span"); s.className = "bst";
+    const a = (i / 18) * Math.PI * 2 + Math.random() * .3, d = 90 + Math.random() * 110;
+    s.textContent = ch[i % ch.length]; s.style.color = cols[i % cols.length];
+    s.style.cssText += ";--x:" + Math.round(Math.cos(a) * d) + "px;--y:" + Math.round(Math.sin(a) * d - 40) + "px;--r:" + Math.round(Math.random() * 360 - 180) + "deg;font-size:" + (14 + Math.random() * 14) + "px";
+    st.appendChild(s); setTimeout(() => s.remove(), 1300);
+  }
+}
 function showResult(amount, fresh) {
-  $("stage").classList.remove("shake");
-  $("stage").classList.add("open");
+  const st = $("stage");
+  st.classList.remove("shake"); st.classList.add("open");
   $("cmt").textContent = CMT[amount] || "Chúc mừng em nha! 🎉";
   $("result").classList.add("show");
-  if (fresh) countUp($("amount"), amount); else $("amount").textContent = money(amount);
+  if (fresh) { countUp($("amount"), amount); burst(); setTimeout(confetti, 450); }
+  else $("amount").textContent = money(amount);
   $("go").disabled = true; $("go").textContent = "ĐÃ RÚT RỒI NHA 💝";
   $("msg").textContent = "";
-  if (fresh) confetti();
 }
 function resetView() {
   $("stage").classList.remove("open", "shake");
@@ -264,9 +304,9 @@ $("go").onclick = async () => {
   const code = norm($("code").value);
   if (!code) { $("msg").textContent = "Nhập mã tham gia trước nha!"; $("code").focus(); return; }
   if (busy) return; busy = true;
-  $("go").disabled = true; $("msg").textContent = "";
+  $("go").disabled = true; $("msg").textContent = "Đang mở lì xì… hồi hộp quá 🤞";
   $("stage").classList.add("shake");
-  const wait = new Promise((r) => setTimeout(r, 1300));
+  const wait = new Promise((r) => setTimeout(r, 1500));
   try {
     const [r] = await Promise.all([fetch(API + "/lixi", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) }), wait]);
     const d = await r.json();
@@ -307,8 +347,9 @@ function confetti() {
   const c = $("cf"), x = c.getContext("2d"), dpr = window.devicePixelRatio || 1;
   c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
   const cols = ["#ffb3cd", "#f0709b", "#ffd76a", "#f5b942", "#ffffff", "#ffd6e3"];
+  const r = $("stage").getBoundingClientRect(), ox = r.left + r.width / 2, oy = r.top + r.height * .5;
   const P = Array.from({ length: 170 }, (_, i) => ({
-    x: innerWidth / 2 + (Math.random() - .5) * 80, y: innerHeight * .5,
+    x: ox + (Math.random() - .5) * 80, y: oy,
     vx: (Math.random() - .5) * 17, vy: -Math.random() * 17 - 4,
     w: 6 + Math.random() * 7, h: 4 + Math.random() * 5, r: Math.random() * 6, vr: (Math.random() - .5) * .4,
     petal: i % 4 === 0, c: cols[Math.floor(Math.random() * cols.length)]

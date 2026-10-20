@@ -4,12 +4,14 @@ export const access = "admin";
 export const methods = ["GET", "POST"];
 
 const DENOMS = [10000, 20000, 50000, 100000, 200000, 500000];
-const ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // bỏ ký tự dễ nhầm: I, L, O, 0, 1
+const ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // dùng khi tên không có chữ cái nào để tạo mã
+// "Trọc" -> "troc", "Minh Anh" -> "minhanh", "Đạt" -> "dat"
+const slug = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]/g, "").slice(0, 24);
 
 function genCode() {
   const b = new Uint8Array(8);
   crypto.getRandomValues(b);
-  return Array.from(b, (x) => ALPHABET[x % ALPHABET.length]).join("");
+  return Array.from(b, (x) => ALPHABET[x % ALPHABET.length]).join("").toLowerCase();
 }
 
 async function state() {
@@ -39,10 +41,13 @@ export default async function (req, res) {
     if (!names.length) return bad(res, "Chưa có tên nào.");
     for (const name of names) {
       let ok = false;
-      for (let i = 0; i < 5 && !ok; i++) {
+      const base = slug(name);
+      for (let i = 1; i <= 60 && !ok; i++) {
+        // trùng tên thì thêm số: troc, troc2, troc3...
+        const code = !base ? genCode() : i === 1 ? base : base + i;
         const r = await db.query(
           "INSERT INTO players (name, code) VALUES ($1, $2) ON CONFLICT (code) DO NOTHING RETURNING id",
-          [name, genCode()]
+          [name, code]
         );
         ok = r.rows.length > 0;
       }
