@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Chúc mừng 20/10 💐 Rút lì xì</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💐%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ffd6e3;--pink2:#ffb3cd;--rose:#f0709b;--cream:#fff8ef;--gold:#f5b942;--gold2:#e39a14;--ink:#5a2a3c;--soft:#8c5d6f;
+ padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#ffe3ec 0%,#fff3f7 45%,#fff8ef 100%);min-height:100vh;line-height:1.5}
+h1,h2,.big{font-family:"Baloo 2",Nunito,system-ui,sans-serif;margin:0}
+.wrap{max-width:460px;margin:0 auto;padding:20px 16px 40px}
+.top{text-align:center;padding:10px 0 4px}
+.top .tag{display:inline-block;background:#fff;border:2px solid var(--gold);color:var(--gold2);font-weight:700;border-radius:99px;padding:2px 14px;font-size:14px}
+h1{font-size:34px;line-height:1.1;margin:10px 0 0;color:var(--rose)}
+.card{background:#fff;border-radius:24px;padding:20px;box-shadow:0 8px 24px rgba(240,112,155,.15);margin-top:18px;border:2px solid #fff}
+.wish{text-align:center}
+.wish p{font-size:18px;font-weight:700;margin:6px 0 14px;min-height:81px;display:flex;align-items:center;justify-content:center}
+button{font:inherit;cursor:pointer;border:0}
+.ghost{background:var(--pink);color:var(--rose);font-weight:700;padding:10px 18px;border-radius:99px}
+.ghost:active{transform:scale(.96)}
+h2{font-size:22px;text-align:center;color:var(--rose)}
+.sub{text-align:center;color:var(--soft);font-size:14px;margin:2px 0 14px}
+input{width:100%;font:inherit;font-weight:700;text-align:center;letter-spacing:3px;text-transform:uppercase;padding:12px;border-radius:16px;border:2px solid var(--pink2);background:var(--cream);color:var(--ink);outline:0}
+input:focus{border-color:var(--gold)}
+.hello{text-align:center;font-weight:700;margin:10px 0 0;min-height:24px}
+/* phong bao */
+.stage{position:relative;width:220px;height:230px;margin:18px auto 6px;perspective:700px}
+.env-back,.env-front,.flap,.paper{position:absolute;left:0;right:0}
+.env-back{bottom:0;height:170px;background:#e4577f;border-radius:14px}
+.paper{bottom:10px;height:150px;margin:0 14px;background:linear-gradient(#fffdf6,#ffeec4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:44px;transition:transform .8s cubic-bezier(.2,.9,.3,1.2) .35s;z-index:1}
+.env-front{bottom:0;height:170px;background:linear-gradient(160deg,#ff8fb1,#f0709b);border-radius:14px;z-index:2;clip-path:polygon(0 0,50% 46%,100% 0,100% 100%,0 100%)}
+.flap{bottom:70px;height:100px;background:linear-gradient(#f66b97,#e4577f);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;z-index:3;transition:transform .5s ease;top:60px;bottom:auto}
+.seal{position:absolute;left:50%;top:120px;transform:translateX(-50%);width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe08a,var(--gold2));color:#7a4a00;font:800 13px/54px "Baloo 2",sans-serif;text-align:center;z-index:4;box-shadow:0 3px 8px rgba(0,0,0,.2);transition:opacity .3s}
+.stage.shake{animation:shake .5s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+.stage.open .flap{transform:rotateX(180deg);z-index:0}
+.stage.open .seal{opacity:0}
+.stage.open .paper{transform:translateY(-95px)}
+.go{display:block;width:100%;margin-top:10px;padding:16px;border-radius:99px;font:800 19px "Baloo 2",sans-serif;letter-spacing:.5px;color:#7a4a00;background:linear-gradient(180deg,#ffd76a,var(--gold));box-shadow:0 5px 0 var(--gold2),0 10px 18px rgba(227,154,20,.3);transition:transform .1s,box-shadow .1s}
+.go:active{transform:translateY(4px);box-shadow:0 1px 0 var(--gold2)}
+.go:disabled{background:#eadfd0;color:#a8967e;box-shadow:0 5px 0 #d4c6b2;cursor:not-allowed}
+.msg{text-align:center;font-weight:700;color:var(--rose);margin:12px 0 0;min-height:24px}
+.result{text-align:center;display:none}
+.result.show{display:block;animation:pop .6s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.result small{color:var(--soft);font-weight:700}
+.amount{font-size:58px;line-height:1.1;font-weight:800;background:linear-gradient(180deg,#ffcf4d,#e39a14);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(160,100,0,.25))}
+.cmt{font-weight:700;font-size:17px;margin:4px 0 10px}
+.note{background:var(--cream);border:2px dashed var(--gold);border-radius:14px;padding:8px 12px;font-size:13.5px;color:var(--soft)}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+footer{text-align:center;color:var(--soft);font-size:13px;margin-top:22px}
+</style>
+</head>
+<body>
+<canvas id="cf"></canvas>
+<div class="wrap">
+  <div class="top"><span class="tag">20 · 10</span><h1>Chúc mừng ngày<br>của các nàng 💐</h1></div>
+
+  <div class="card wish">
+    <p id="wish"></p>
+    <button class="ghost" id="shuffle">✨ Đổi lời chúc</button>
+  </div>
+
+  <div class="card">
+    <h2>🧧 Rút lì xì 20/10</h2>
+    <p class="sub">Nhập mã riêng của em, mỗi người rút đúng một lần thôi nha</p>
+    <input id="code" maxlength="12" placeholder="MÃ THAM GIA" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <p class="hello" id="hello"></p>
+
+    <div class="stage" id="stage">
+      <div class="env-back"></div><div class="paper">🎁</div>
+      <div class="env-front"></div><div class="flap"></div><div class="seal">20/10</div>
+    </div>
+
+    <div class="result" id="result">
+      <small>Em trúng</small>
+      <div class="amount big" id="amount"></div>
+      <div class="cmt" id="cmt"></div>
+      <div class="note">Tiền sẽ được trao trực tiếp, em nhớ nhắc để được nhận nha 💕</div>
+    </div>
+
+    <button class="go" id="go">RÚT LÌ XÌ NGAY</button>
+    <p class="msg" id="msg"></p>
+  </div>
+  <footer>Làm bằng một chút thương và rất nhiều confetti 🌸</footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const API = (window.__HATCHABLE__ && window.__HATCHABLE__.api) || "/api";
+
+const WISHES = [
+  "Chúc các em xinh như hoa, vui như Tết, còn deadline thì tránh xa như người yêu cũ.",
+  "20/10 là ngày duy nhất em được phép nói “hôm nay em là nữ hoàng” mà không ai dám cãi.",
+  "Chúc em luôn là phiên bản đẹp nhất, còn ví thì là phiên bản dày nhất.",
+  "Chúc em ăn không béo, ngủ không quầng thâm, nhắn tin không bị seen.",
+  "Mong em có thật nhiều tiền, ít drama, và đủ lười để không cần thức khuya.",
+  "Hôm nay không cần giỏi giang, chỉ cần rạng rỡ. Giỏi giang để mai tính!",
+  "Chúc em được yêu thương như pin 100%, và buồn phiền sạc không bao giờ đầy.",
+  "Chúc em crush thì nhắn trước, sếp thì nghỉ sớm, còn trà sữa thì luôn giảm giá.",
+  "Em xinh sẵn rồi, chúc thêm cho giàu nữa là chuẩn bài.",
+  "Chúc các em tuổi nào cũng đẹp, tháng nào cũng lương, ngày nào cũng có người rủ đi ăn."
+];
+const CMT = {
+  10000: "Bé thôi nhưng có võ: đủ một ly trà đá và một nụ cười 🧋",
+  20000: "Một ly trà sữa size S đang vẫy gọi em đó 🥤",
+  50000: "Một bữa trưa tử tế rồi nha, ăn ngon nghen 🍜",
+  100000: "Tờ xanh lên đời! Nhớ khao nhóm một ly nha 💸",
+  200000: "Ồ la la, số hưởng đây rồi! Hôm nay em là nhân vật chính ✨",
+  500000: "JACKPOT!!! Hôm nay em là người được yêu nhất nhóm 👑"
+};
+
+let wi = -1;
+function nextWish() {
+  let i; do { i = Math.floor(Math.random() * WISHES.length); } while (i === wi);
+  wi = i; $("wish").textContent = WISHES[i];
+}
+$("shuffle").onclick = nextWish; nextWish();
+
+const money = (n) => Number(n).toLocaleString("vi-VN") + "đ";
+const norm = (c) => c.toUpperCase().replace(/[^A-Z0-9]/g, "");
+const store = {
+  get() { try { return localStorage.getItem("lixi_code") || ""; } catch (e) { return ""; } },
+  set(v) { try { v ? localStorage.setItem("lixi_code", v) : localStorage.removeItem("lixi_code"); } catch (e) {} }
+};
+
+function showResult(amount, fresh) {
+  $("stage").classList.remove("shake");
+  $("stage").classList.add("open");
+  $("amount").textContent = money(amount);
+  $("cmt").textContent = CMT[amount] || "Chúc mừng em nha! 🎉";
+  $("result").classList.add("show");
+  $("go").disabled = true; $("go").textContent = "ĐÃ RÚT RỒI NHA 💝";
+  $("msg").textContent = "";
+  if (fresh) confetti();
+}
+function resetView() {
+  $("stage").classList.remove("open", "shake");
+  $("result").classList.remove("show");
+  $("go").disabled = false; $("go").textContent = "RÚT LÌ XÌ NGAY";
+}
+function applyInfo(d) {
+  $("hello").textContent = d.name ? "Chào " + d.name + " 💖" : "";
+  if (d.drawn) return showResult(d.amount, false);
+  resetView();
+  if (d.status === "draft") { $("msg").textContent = "Chương trình chưa mở, chờ xíu nha!"; $("go").disabled = true; }
+  else if (d.status === "closed") { $("msg").textContent = "Chương trình đã đóng rồi."; $("go").disabled = true; }
+  else $("msg").textContent = "";
+}
+
+async function lookup() {
+  const code = norm($("code").value);
+  if (!code) { $("hello").textContent = ""; resetView(); return; }
+  try {
+    const r = await fetch(API + "/lixi?code=" + encodeURIComponent(code));
+    const d = await r.json();
+    if (!r.ok) { store.set(""); $("hello").textContent = ""; resetView(); $("msg").textContent = d.message || "Có lỗi rồi."; return; }
+    store.set(code); applyInfo(d);
+  } catch (e) { $("msg").textContent = "Mất kết nối, thử lại nha."; }
+}
+$("code").addEventListener("change", lookup);
+$("code").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.target.blur(); } });
+
+let busy = false;
+$("go").onclick = async () => {
+  const code = norm($("code").value);
+  if (!code) { $("msg").textContent = "Nhập mã tham gia trước nha!"; $("code").focus(); return; }
+  if (busy) return; busy = true;
+  $("go").disabled = true; $("msg").textContent = "";
+  $("stage").classList.add("shake");
+  const wait = new Promise((r) => setTimeout(r, 1300));
+  try {
+    const [r] = await Promise.all([fetch(API + "/lixi", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) }), wait]);
+    const d = await r.json();
+    if (!r.ok) { $("stage").classList.remove("shake"); $("go").disabled = false; $("msg").textContent = d.message || "Có lỗi rồi."; busy = false; return; }
+    store.set(code);
+    const info = await (await fetch(API + "/lixi?code=" + encodeURIComponent(code))).json();
+    $("hello").textContent = info.name ? "Chào " + info.name + " 💖" : "";
+    showResult(d.amount, d.fresh);
+  } catch (e) {
+    $("stage").classList.remove("shake"); $("go").disabled = false; $("msg").textContent = "Mất kết nối, thử lại nha.";
+  }
+  busy = false;
+};
+
+/* confetti */
+function confetti() {
+  const c = $("cf"), x = c.getContext("2d"), dpr = window.devicePixelRatio || 1;
+  c.width = innerWidth * dpr; c.height = innerHeight * dpr; x.scale(dpr, dpr);
+  const cols = ["#ffb3cd", "#f0709b", "#ffd76a", "#f5b942", "#ffffff", "#ffd6e3"];
+  const P = Array.from({ length: 150 }, () => ({
+    x: innerWidth / 2 + (Math.random() - .5) * 80, y: innerHeight * .5,
+    vx: (Math.random() - .5) * 16, vy: -Math.random() * 16 - 4,
+    w: 6 + Math.random() * 7, h: 4 + Math.random() * 5, r: Math.random() * 6, vr: (Math.random() - .5) * .4,
+    c: cols[Math.floor(Math.random() * cols.length)]
+  }));
+  let t = 0;
+  (function f() {
+    x.clearRect(0, 0, innerWidth, innerHeight); t++;
+    P.forEach((p) => { p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); x.restore(); });
+    if (t < 220) requestAnimationFrame(f); else x.clearRect(0, 0, innerWidth, innerHeight);
+  })();
+}
+
+/* khởi động: mã từ link ?code= hoặc mã đã lưu */
+(function init() {
+  const q = new URLSearchParams(location.search).get("code");
+  const c = q || store.get();
+  if (c) { $("code").value = c; lookup(); }
+  else fetch(API + "/lixi").then((r) => r.json()).then((d) => {
+    if (d.status === "draft") $("msg").textContent = "Chương trình sắp mở, chờ xíu nha!";
+    if (d.status === "closed") $("msg").textContent = "Chương trình đã đóng rồi.";
+  }).catch(() => {});
+})();
+</script>
+</body>
+</html>

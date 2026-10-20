@@ -77,7 +77,7 @@ export default async function (req, res) {
     const status = await getStatus();
     if (p.drawn_at) return res.json({ ...view(status, p), fresh: false });
     if (status !== "open") {
-      return res.status(403).json({ error: "not_open", status, message: status === "closed" ? "Chương trình đã đóng rồi." : "Chương trình chưa mở, chờ chị xíu nha!" });
+      return res.status(403).json({ error: "not_open", status, message: status === "closed" ? "Chương trình đã đóng rồi." : "Chương trình chưa mở, chờ xíu nha!" });
     }
     const left = await db.query("SELECT count(*)::int AS n FROM slots WHERE player_id IS NULL");
     if (left.rows[0].n === 0) {
