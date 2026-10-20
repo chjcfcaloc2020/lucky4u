@@ -1,0 +1,1 @@
+INSERT INTO settings (id, status, budget) SELECT 1, 'draft', 0 WHERE NOT EXISTS (SELECT 1 FROM settings WHERE id = 1)
